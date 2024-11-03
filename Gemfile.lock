@@ -286,6 +286,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   puma (>= 5.0)
+  rackup (~> 2.2.0)
   rails (~> 7.2.2)
   rubocop-rails-omakase
   selenium-webdriver
