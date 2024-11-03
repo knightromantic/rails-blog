@@ -1,0 +1,6 @@
+<h1><%= @article.title %></h1>
+<p><%= @article.body %></p>
+
+<%= link_to '返回', articles_path %>
+<%= link_to '编辑', edit_article_path(@article) %>
+<%= link_to '删除', @article, method: :delete, data: { confirm: '您确定要删除这篇文章吗？' } %>
