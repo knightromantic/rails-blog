@@ -1,21 +1,41 @@
-class ArticlePolicy < ApplicationPolicy
+class ApplicationPolicy
+  attr_reader :user, :record
+
+  def initialize(user, record)
+    @user = user
+    @record = record
+  end
+
   def index?
-    true # 所有用户都可以查看文章列表
+    false
   end
 
   def show?
-    true # 所有用户都可以查看文章
+    false
   end
 
   def create?
-    user.present? # 只有登录用户可以创建文章
+    false
   end
 
   def update?
-    user.present? && (record.user_id == user.id) # 只有作者可以更新文章
+    false
   end
 
   def destroy?
-    user.present? && (record.user_id == user.id) # 只有作者可以删除文章
+    false
+  end
+
+  class Scope
+    attr_reader :user, :scope
+
+    def initialize(user, scope)
+      @user = user
+      @scope = scope
+    end
+
+    def resolve
+      scope.all
+    end
   end
 end

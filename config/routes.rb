@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "users/new"
+  get "users/create"
   # Health check route
   get "up" => "rails/health#show", as: :rails_health_check
 
@@ -11,5 +13,10 @@ Rails.application.routes.draw do
 
   # Set the root path to the articles index
   root "articles#index"
+  
+  #log
+  resources :sessions, only: [:new, :create, :destroy]
+get 'signup', to: 'users#new'
+
 end
 

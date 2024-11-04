@@ -1,5 +1,6 @@
 source "https://gems.ruby-china.com"
 
+gem 'bcrypt', '~> 3.1.7'
 gem 'pundit'
 gem 'pg'
 gem 'rackup', '2.1.0'
