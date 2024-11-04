@@ -1,5 +1,6 @@
 source "https://gems.ruby-china.com"
 
+gem 'pundit'
 gem 'pg'
 gem 'rackup', '2.1.0'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
