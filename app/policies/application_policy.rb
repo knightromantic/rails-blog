@@ -23,7 +23,15 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    user.present? && record.user == user
+  end
+
+  def new?
+    create?
+  end
+
+  def edit?
+    update?
   end
 
   class Scope
