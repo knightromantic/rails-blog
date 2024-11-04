@@ -1,10 +1,9 @@
-# app/controllers/sessions_controller.rb
 class SessionsController < ApplicationController
   def new
   end
 
   def create
-    user = User.find_by(username: params[:username])
+    user = User.find_by(username: params[:username]) # 确保这里是 :username
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to articles_path, notice: '登录成功！'
