@@ -2,7 +2,7 @@ source "https://gems.ruby-china.com"
 
 gem 'pundit'
 gem 'pg'
-gem 'rackup', '2.1.0'
+gem 'rackup', '2.2.0'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
