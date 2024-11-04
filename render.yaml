@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: rails-blog
+    env: ruby
+    plan: free
+    buildCommand: bundle install
+    startCommand: bundle exec rails server -b 0.0.0.0 -p $PORT
+    envVars:
+      RAILS_ENV: production
+      DATABASE_URL: postgresql://db_6lni_user:ffjLlRajW0VnOw2DVYJzx6fLwIuDS5jW@dpg-csjjr4e8ii6s73d4thgg-a.oregon-postgres.render.com/db_6lni
