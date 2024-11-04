@@ -1,3 +1,4 @@
+# app/controllers/application_controller.rb
 class ApplicationController < ActionController::Base
   include Pundit
   before_action :set_current_user
@@ -5,7 +6,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # 设置当前用户
   def set_current_user
     @current_user = User.find(session[:user_id]) if session[:user_id]
   end

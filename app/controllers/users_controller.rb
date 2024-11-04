@@ -1,21 +1,22 @@
+# app/controllers/users_controller.rb
 class UsersController < ApplicationController
   def new
-    @user = User.new  # 创建一个新的用户实例
+    @user = User.new
   end
 
   def create
-    @user = User.new(user_params)  # 使用安全参数创建用户
+    @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id  # 自动登录
+      session[:user_id] = @user.id
       redirect_to articles_path, notice: '注册成功！'
     else
-      render :new  # 如果保存失败，重新渲染注册表单
+      render :new
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)  # 确保只允许这些参数
+    params.require(:user).permit(:username, :password, :password_confirmation)
   end
 end

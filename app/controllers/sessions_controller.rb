@@ -1,21 +1,21 @@
+# app/controllers/sessions_controller.rb
 class SessionsController < ApplicationController
   def new
-    # 显示登录表单
   end
 
   def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password]) # 假设你已经在 User 模型中设置了密码
-      session[:user_id] = user.id # 将用户 ID 存储到 session
+    user = User.find_by(username: params[:username])
+    if user&.authenticate(params[:password])
+      session[:user_id] = user.id
       redirect_to articles_path, notice: '登录成功！'
     else
-      flash.now[:alert] = '邮箱或密码无效。'
+      flash.now[:alert] = '用户名或密码错误。'
       render :new
     end
   end
 
   def destroy
-    session[:user_id] = nil # 清除 session
-    redirect_to root_path, notice: '成功登出。'
+    session.delete(:user_id)
+    redirect_to login_path, notice: '您已成功退出。'
   end
 end
