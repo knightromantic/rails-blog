@@ -1,12 +1,9 @@
 <h1>文章列表</h1>
-<%= link_to '创建新文章', new_article_path %>
 
 <ul>
   <% @articles.each do |article| %>
     <li>
       <%= link_to article.title, article %>
-      <%= link_to '编辑', edit_article_path(article) %>
-      <%= link_to '删除', article, method: :delete, data: { confirm: '您确定要删除这篇文章吗？' } %>
     </li>
   <% end %>
 </ul>
